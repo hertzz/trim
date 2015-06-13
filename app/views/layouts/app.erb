@@ -4,6 +4,9 @@
     <title>TRIM</title>
   </head>
   <body>
+    <% if flash[:errors] %>
+      <strong><%= flash[:errors] %></strong>
+    <% end %>
     <%= yield %>
   </body>
 </html>

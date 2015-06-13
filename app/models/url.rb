@@ -7,18 +7,26 @@ module Trim
       end
 
       def validate
+        set_uuid
+
         validates_url :name
         validates_unique :uuid
         validates_presence [:name, :uuid]
 
-        set_uuid
         set_created_at
+      end
+
+      def increment_redirects
+        self.redirects += 1
+        self.save
       end
 
       private
 
         def set_uuid
-          self.uuid = SecureRandom.base64
+          if self.uuid.nil?
+            self.uuid = SecureRandom.base64(5)
+          end
         end
 
         def set_created_at

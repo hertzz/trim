@@ -1,8 +1,10 @@
 <% if @urls.nil? %>
   <p>No URL's have been generated, yet!</p>
+<% else %>
+  <p>Most recent URL's:</p>
+  <list>
+    <% @urls.each do |url| %>
+      <ul><%= url.name %> (<%= url.uuid %>)</ul>
+    <% end %>
+  </list>
 <% end %>
-
-<form action="/urls/new" method="POST">
-    <input name="name" type="text" />
-    <input type="submit" value="submit" id="submit" />
-</form>

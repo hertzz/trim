@@ -28,10 +28,10 @@ module Trim
         }
       end
 
-      error Sequel::NoMatchingRow do
-        status 404
-        json error: {type: 'unknown_record'}
-      end
+      #error Sequel::NoMatchingRow do
+      #  status 404
+      #  json error: {type: 'unknown_record'}
+      #end
 
       helpers do
         def render_erb(view)

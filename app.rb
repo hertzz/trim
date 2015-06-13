@@ -10,6 +10,7 @@ $: << File.expand_path('../lib', __FILE__)
 require 'sinatra/base'
 require 'sinatra/sequel'
 require 'sinatra/static_cache'
+require 'sinatra/flash'
 #require 'rack/csrf'
 require 'app/models'
 require 'app/helpers'
