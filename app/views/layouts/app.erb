@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>TRIM</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%= asset_path 'bootstrap.min.css' %>" rel="stylesheet">
   </head>
   <body>
     <% if flash[:errors] %>
       <strong><%= flash[:errors] %></strong>
     <% end %>
     <%= yield %>
+
+    <script src="<%= asset_path 'bootstrap.min.js' %>"></script>
   </body>
 </html>

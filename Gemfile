@@ -12,13 +12,12 @@ gem 'activesupport', '~> 4.1.1'
 gem 'bcrypt-ruby'
 gem 'rack-ssl'
 gem 'rack_csrf'
+gem 'sprockets'
+gem 'stylus'
+gem 'stylus-source', '0.31.0'
 
 group :development do
   gem 'thin'
-end
-
-group :assets do
-  gem 'sprockets'
 end
 
 group :production do

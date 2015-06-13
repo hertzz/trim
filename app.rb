@@ -11,9 +11,11 @@ require 'sinatra/base'
 require 'sinatra/sequel'
 require 'sinatra/static_cache'
 require 'sinatra/flash'
+require 'stylus/sprockets'
 #require 'rack/csrf'
 require 'app/models'
 require 'app/helpers'
+require 'app/extensions'
 require 'app/routes'
 
 module Trim
@@ -49,6 +51,7 @@ module Trim
     #use Rack::Csrf
 
     #use Trim::Helpers::Global
+    use Trim::Routes::Root
     use Trim::Routes::Urls
   end
 end

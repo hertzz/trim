@@ -20,6 +20,8 @@ module Trim
         set :show_exceptions, :after_handler
       end
 
+      register Trim::Extensions::Assets::Helpers
+
       error Sequel::ValidationFailed do
         status 406
         json error: {
@@ -36,6 +38,10 @@ module Trim
       helpers do
         def render_erb(view)
           erb view, layout: :'layouts/app'
+        end
+
+        def ios?
+          request.user_agent =~ /iPhone|iPod/
         end
       end
     end

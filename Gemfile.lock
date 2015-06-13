@@ -15,6 +15,7 @@ GEM
     daemons (1.2.2)
     erubis (2.7.0)
     eventmachine (1.0.7)
+    execjs (2.5.2)
     i18n (0.6.11)
     json (1.8.3)
     kgio (2.9.3)
@@ -52,6 +53,10 @@ GEM
       sinatra (>= 0.9.4)
     sprockets (3.2.0)
       rack (~> 1.0)
+    stylus (1.0.1)
+      execjs
+      stylus-source
+    stylus-source (0.31.0)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -82,5 +87,7 @@ DEPENDENCIES
   sinatra-flash
   sinatra-sequel
   sprockets
+  stylus
+  stylus-source (= 0.31.0)
   thin
   unicorn
