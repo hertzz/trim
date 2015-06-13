@@ -1,0 +1,26 @@
+default: &default
+
+development:
+  <<: *default
+  adapter: mysql2
+  host: localhost
+  port: 3306
+  database: trim_development
+  username: root
+  password:
+
+test:
+  <<: *default
+  database: trim_test
+
+staging:
+  <<: *default
+  database: trim_staging
+
+ci:
+  <<: *default
+  database: trim_ci
+
+production:
+  <<: *default
+  database: trim_production
