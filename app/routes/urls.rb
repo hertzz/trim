@@ -53,6 +53,7 @@ module Trim
           url = Url.create(name: params['name'])
           create_history_record(url)
 
+          flash[:notice] = 'Your shortened URL has been created!'
           redirect "/urls/show/#{url.uuid}"
         rescue Exception => e
           flash[:errors] = e.message.capitalize

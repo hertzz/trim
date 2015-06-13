@@ -31,7 +31,7 @@ module Trim
 
         def set_uuid
           if self.uuid.nil?
-            self.uuid = SecureRandom.base64(5)
+            self.uuid = SecureRandom.hex(6)
           end
         end
 
