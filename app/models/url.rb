@@ -6,6 +6,12 @@ module Trim
       dataset_module do
       end
 
+      one_to_one :history
+
+      def after_save
+        super
+      end
+
       def validate
         set_uuid
 
@@ -32,7 +38,6 @@ module Trim
         def set_created_at
           self.created_at ||= Time.now
         end
-
     end
   end
 end

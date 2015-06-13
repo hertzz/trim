@@ -7,5 +7,6 @@ Sequel::Model.plugin Sequel::Plugins::URLValidationHelpers
 module Trim
   module Models
     autoload :Url, 'app/models/url'
+    autoload :History, 'app/models/history'
   end
 end
