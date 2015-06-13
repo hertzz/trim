@@ -22,7 +22,7 @@ module Trim
         end
 
         def set_created_at
-          self.created_at ||= Time.current
+          self.created_at ||= Time.now
         end
 
     end

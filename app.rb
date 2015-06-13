@@ -10,7 +10,7 @@ $: << File.expand_path('../lib', __FILE__)
 require 'sinatra/base'
 require 'sinatra/sequel'
 require 'sinatra/static_cache'
-require 'rack/csrf'
+#require 'rack/csrf'
 require 'app/models'
 require 'app/helpers'
 require 'app/routes'
@@ -45,7 +45,7 @@ module Trim
     end
 
     use Rack::Deflater
-    use Rack::Csrf
+    #use Rack::Csrf
 
     #use Trim::Helpers::Global
     use Trim::Routes::Urls
