@@ -36,8 +36,8 @@ module Trim
       #end
 
       helpers do
-        def render_erb(view, layout='layouts/application'.to_sym)
-          erb view, layout: layout
+        def render_erb(view, layout='layouts/application')
+          erb view.to_sym, layout: layout.to_sym
         end
 
         def ios?

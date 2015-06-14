@@ -3,7 +3,7 @@ module Trim
     class Urls < Trim::Routes::Base
       get '/urls' do
         @urls = Url.all
-        render_erb :'url/index'
+        render_erb 'url/index'
       end
 
       get '/urls/go/:uuid' do
@@ -28,14 +28,14 @@ module Trim
       end
 
       get '/urls/new' do
-        render_erb :'url/new'
+        render_erb 'url/new'
       end
 
       get '/urls/show/:uuid' do
         begin
           @url = Url.first!(uuid: params[:uuid])
 
-          render_erb :'url/show'
+          render_erb 'url/show'
         rescue Exception => e
           flash[:errors] = "Could not find any URL matching the provided key (#{params[:uuid]})"
           redirect '/urls'
