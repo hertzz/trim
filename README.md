@@ -4,7 +4,7 @@
 These links can be sent to anyone, and once clicked, will redirect a user to the website. Shortened URL's generated
 with **TRIM** can be tracked by total redirects as well as individual redirects on a per-IP basis.
 
- ## Requirements
+## Requirements
  - Ruby 2.1.x+
  - Rubygems
  - Bundler (gem)
