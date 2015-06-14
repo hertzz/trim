@@ -13,6 +13,7 @@ require 'sinatra/static_cache'
 require 'sinatra/flash'
 require 'stylus/sprockets'
 #require 'rack/csrf'
+require 'trim/config'
 require 'app/models'
 require 'app/helpers'
 require 'app/extensions'
@@ -28,6 +29,10 @@ module Trim
         ENV['DATABASE_URL'] ||
         "#{db['adapter']}://#{db['username']}:#{db['password']}@#{db['host']}:#{db['port']}/#{db['database']}"
       }
+
+      set :config, Trim::Config.new
+
+      p settings.config
     end
 
     configure do
@@ -39,7 +44,6 @@ module Trim
       set :protection, except: :session_hijacking
       set :erb, escape_html: true
       set :show_exceptions, true
-      set :
 
       set :sessions,
           :httponly     => true,

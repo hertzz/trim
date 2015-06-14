@@ -27,12 +27,6 @@ module Trim
         redirect url.name
       end
 
-      helpers do
-        def render_erb(view)
-          erb view, layout: :'layouts/app'
-        end
-      end
-
       get '/urls/new' do
         render_erb :'url/new'
       end
