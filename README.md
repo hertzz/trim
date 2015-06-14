@@ -14,7 +14,7 @@ with **TRIM** can be tracked by total redirects as well as individual redirects 
 ## Setup
 Clone the repository on your server, outside of the webservers publically accessible directories:
 ```sh
-$ git clone git@github.com:tommyjohnson/trim.git /usr/local/trim
+$ git clone git@github.com:tommyjohnson/trim.git /usr/local/
 ```
 
 Install rubygems dependencies:
