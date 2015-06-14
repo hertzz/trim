@@ -54,7 +54,7 @@ $ rake db:migrate [MIGRATION_VERSION]
 
 Start Unicorn:
 ```sh
-$ unicorn -E production -o 0.0.0.0 -p 8080
+$ unicorn -E production -o 0.0.0.0 -p 80
 ```
 
 ## Contributors
