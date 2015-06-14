@@ -5,12 +5,16 @@
     To find out more information about a specific URL, click on any of the entries in the list.
   </p>
 
-  <% @urls.each do |url| %>
-    <a href="<%= @base_url %>/urls/show/<%= url.uuid %>"><%= url.name %></a><br />
-  <% end %><br />
+  <% if @urls.size != 0 %>
+    <% @urls.each do |url| %>
+      <a href="<%= @base_url %>/urls/show/<%= url.uuid %>"><%= url.name %></a><br />
+    <% end %><br />
 
-  <div class='apple_pagination'>
-    <%# page_entries_info @urls, model: 'url' %>
-    <%= will_paginate @urls, container: true %>
-  </div>
+    <div class='apple_pagination'>
+      <%# page_entries_info @urls, model: 'url' %>
+      <%= will_paginate @urls, container: true %>
+    </div>
+  <% else %>
+    <p>No URL's have been shortened yet! <a href="<%= @base_url %>/urls/new">Do you want to create one?</a></p>
+  <% end %>
 </div>
