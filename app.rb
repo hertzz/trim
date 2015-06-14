@@ -26,7 +26,7 @@ module Trim
 
       set :database, lambda {
         ENV['DATABASE_URL'] ||
-        "mysql2://#{db['username']}:#{db['password']}@#{db['host']}:#{db['port']}/#{db['database']}"
+        "#{db['adapter']}://#{db['username']}:#{db['password']}@#{db['host']}:#{db['port']}/#{db['database']}"
       }
     end
 
@@ -39,6 +39,7 @@ module Trim
       set :protection, except: :session_hijacking
       set :erb, escape_html: true
       set :show_exceptions, true
+      set :
 
       set :sessions,
           :httponly     => true,
