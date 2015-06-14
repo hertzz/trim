@@ -1,3 +1,5 @@
+require 'will_paginate/view_helpers/sinatra'
+
 module Trim
   module Routes
     class Urls < Trim::Routes::Base
@@ -27,17 +29,31 @@ module Trim
         redirect url.name
       end
 
+      get '/go/:uuid' do
+        redirect "/urls/go/#{params[:uuid]}"
+      end
+
       get '/urls/new' do
         render_erb 'url/new'
+      end
+
+      get '/urls/statistics' do
+        # Start page, Results per page
+        params[:page].to_i != 0 ? (page = params[:page].to_i) : page = 1
+        @base_url = settings.config['base_url']
+
+        @urls = Url.order(:id).reverse.paginate(page, 10)
+        render_erb 'url/statistics'
       end
 
       get '/urls/show/:uuid' do
         begin
           @url = Url.first!(uuid: params[:uuid])
+          @base_url = settings.config['base_url']
 
           render_erb 'url/show'
         rescue Exception => e
-          flash[:errors] = "Could not find any URL matching the provided key (#{params[:uuid]})"
+          flash[:errors] = e.message
           redirect '/urls'
         end
       end

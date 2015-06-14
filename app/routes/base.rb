@@ -18,6 +18,8 @@ module Trim
 
         set :erb, escape_html: true
         set :show_exceptions, :after_handler
+
+        set :config, Trim::Config.new.get_data
       end
 
       register Trim::Extensions::Assets::Helpers

@@ -7,10 +7,14 @@ Bundler.require
 $: << File.expand_path('../', __FILE__)
 $: << File.expand_path('../lib', __FILE__)
 
+require 'active_support/inflector'
 require 'sinatra/base'
 require 'sinatra/sequel'
 require 'sinatra/static_cache'
 require 'sinatra/flash'
+require 'will_paginate'
+require 'will_paginate/sequel'
+require 'will_paginate/view_helpers/sinatra'
 require 'stylus/sprockets'
 #require 'rack/csrf'
 require 'trim/config'
@@ -30,9 +34,7 @@ module Trim
         "#{db['adapter']}://#{db['username']}:#{db['password']}@#{db['host']}:#{db['port']}/#{db['database']}"
       }
 
-      set :config, Trim::Config.new
-
-      p settings.config
+      set :config, Trim::Config.new.get_data
     end
 
     configure do

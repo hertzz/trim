@@ -15,6 +15,7 @@ gem 'rack_csrf'
 gem 'sprockets'
 gem 'stylus'
 gem 'stylus-source', '0.31.0'
+gem 'will_paginate', '~> 3.0.5'
 
 group :development do
   gem 'thin'

@@ -1,3 +1,5 @@
+require 'will_paginate/view_helpers/sinatra'
+
 module Trim
   module Routes
     autoload :Base, 'app/routes/base'
