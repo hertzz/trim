@@ -1,0 +1,11 @@
+default: &default
+  base_url: 'http://localhost:8080'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

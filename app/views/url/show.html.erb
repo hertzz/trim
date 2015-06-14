@@ -1,0 +1,9 @@
+<div id="centeredContainer">
+  <h1 class="text-center"><strong>Your shortened URL</h1><br />
+  <p class="lead text-center">
+    To start redirecting users with your new shortened URL, simply copy and paste the link below<br />
+    and send it to anyone you want!
+  </p>
+
+  <input class="form-control input-lg text-center" id="newUrl" type="text" readonly="readonly" value="<%= "#{@base_url}/go/#{@url.uuid}" %>">
+</div>
