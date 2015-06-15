@@ -9,14 +9,21 @@ module Trim
       end
 
       get '/urls/go/:uuid' do
-        url = Url.first!(uuid: params[:uuid])
-        url.increment_redirects
+        begin
+          url = Url.first!(uuid: params[:uuid])
+          url.increment_redirects
+        rescue Sequel::NoMatchingRow => e
+          flash[:errors] = "Couldn't find a URL for the specified UUID \"#{params[:uuid]}\" (#{e.message})"
+          redirect '/urls'
+        end
 
         # History stuff
         begin
           if history = History.first!(source_ip: request.ip, url_id: url.id)
             history.increment_redirects
           end
+
+          redirect url.name
         rescue Sequel::NoMatchingRow => e
           record = History.create(
             url_id: url.id,
@@ -25,8 +32,6 @@ module Trim
 
           record.increment_redirects
         end
-
-        redirect url.name
       end
 
       get '/go/:uuid' do
@@ -53,7 +58,7 @@ module Trim
 
           render_erb 'url/show'
         rescue Exception => e
-          flash[:errors] = e.message
+          flash[:errors] = "Couldn't find a URL for the specified UUID \"#{params[:uuid]}\" (#{e.message})"
           redirect '/urls'
         end
       end
