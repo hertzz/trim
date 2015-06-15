@@ -32,6 +32,8 @@ module Trim
         }
       end
 
+      I18n.enforce_available_locales = false
+
       #error Sequel::NoMatchingRow do
       #  status 404
       #  json error: {type: 'unknown_record'}
