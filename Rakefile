@@ -4,6 +4,7 @@ require 'sequel'
 require 'yaml'
 require 'erb'
 require 'mysql2'
+require 'rake/testtask'
 
 ruby_env = ENV['RUBY_ENV'] ||= 'development'
 database_config = YAML.load(ERB.new(File.read('config/database.yml')).result)[ruby_env]
@@ -44,4 +45,7 @@ namespace :db do
     client.query("DROP DATABASE #{database_config['database']}")
     client.close
   end
+end
+
+namespace :test do
 end
